@@ -52,15 +52,15 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       padding: 12px 32px;
-      border: 1px solid #2c2c2c;
-      background: linear-gradient(to right, #2c2c2c 50%, transparent 50%);
+      border: 1px solid rgba(44,44,44,0.35);
+      background: linear-gradient(to right, rgba(44,44,44,0.08) 50%, transparent 50%);
       background-size: 200% 100%;
       background-position: right;
       color: #2c2c2c;
       cursor: pointer;
-      transition: background-position 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s ease, letter-spacing 0.4s ease;
+      transition: background-position 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.4s ease, letter-spacing 0.4s ease, border-color 0.4s ease;
     }
-    .btn-quiet:hover { background-position: left; color: #fff; letter-spacing: 0.18em; }
+    .btn-quiet:hover { background-position: left; border-color: #2c2c2c; letter-spacing: 0.18em; }
 
     .btn-quiet-white {
       display: inline-block;
