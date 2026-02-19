@@ -13,10 +13,10 @@
       theme: {
         extend: {
           colors: {
-            body: '#1a1a1a',
+            body: '#2c2c2c',
             muted: '#888888',
             border: '#e8e8e8',
-            'footer-bg': '#1a1a1a',
+            'footer-bg': '#2c2c2c',
             'footer-border': '#333333',
           },
           fontFamily: {
@@ -34,17 +34,9 @@
       font-weight: 300;
       font-size: 1rem;
       line-height: 1.7;
-      color: #1a1a1a;
+      color: #2c2c2c;
       background: #fff;
       -webkit-font-smoothing: antialiased;
-    }
-
-    /* Announcement bar */
-    .ticker-wrapper { overflow: hidden; white-space: nowrap; }
-    .ticker-content { display: inline-block; animation: ticker 25s linear infinite; }
-    @keyframes ticker {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
     }
 
     /* Spacing */
@@ -60,13 +52,13 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       padding: 12px 32px;
-      border: 1px solid #1a1a1a;
+      border: 1px solid #2c2c2c;
       background: transparent;
-      color: #1a1a1a;
+      color: #2c2c2c;
       cursor: pointer;
       transition: all 0.4s ease;
     }
-    .btn-quiet:hover { background: #1a1a1a; color: #fff; }
+    .btn-quiet:hover { background: #2c2c2c; color: #fff; }
 
     .btn-quiet-white {
       display: inline-block;
@@ -92,8 +84,8 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       padding: 12px 32px;
-      border: 1px solid #1a1a1a;
-      background: #1a1a1a;
+      border: 1px solid #2c2c2c;
+      background: #2c2c2c;
       color: #fff;
       cursor: pointer;
       transition: opacity 0.4s ease;
@@ -105,16 +97,15 @@
     .panoramic-track {
       display: flex;
       width: fit-content;
-      animation: panorama-scroll 80s linear infinite;
+      animation: panorama-scroll 55s linear infinite;
     }
     @keyframes panorama-scroll {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
-    .panoramic-item { flex-shrink: 0; width: 240px; margin: 0; padding: 0; }
+    .panoramic-item { flex-shrink: 0; width: 200px; margin: 0; padding: 0; }
     .panoramic-item a { display: block; line-height: 0; }
-    .panoramic-item img { transition: opacity 0.5s ease; display: block; }
-    .panoramic-item:hover img { opacity: 0.85; }
+    .panoramic-item img { display: block; }
 
     /* Hero */
     @keyframes hero-zoom {
@@ -141,58 +132,46 @@
     .product-card img { transition: opacity 0.4s ease; }
     .product-card:hover img { opacity: 0.9; }
 
+    /* Header transparent-to-solid */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    .site-header.scrolled {
+      background: #fff;
+      border-bottom-color: #f0f0f0;
+    }
+    .site-header .header-logo,
+    .site-header .header-nav a,
+    .site-header .header-hamburger { color: #fff; transition: color 0.4s ease; }
+    .site-header.scrolled .header-logo { color: #2c2c2c; }
+    .site-header.scrolled .header-nav a { color: #888; }
+    .site-header.scrolled .header-nav a:hover { color: #2c2c2c; }
+    .site-header.scrolled .header-hamburger { color: #2c2c2c; }
+
     html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
 
-  <!-- ============ ANNOUNCEMENT BAR ============ -->
-  <div class="bg-[#f5f3f0] text-muted py-2 text-[10px] font-light tracking-[0.12em] uppercase">
-    <div class="ticker-wrapper">
-      <div class="ticker-content">
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-        <span class="mx-12">Complimentary delivery on orders over $300</span>
-        <span class="mx-6 opacity-30">—</span>
-      </div>
-    </div>
-  </div>
-
   <!-- ============ HEADER ============ -->
-  <header class="bg-white sticky top-0 z-50" style="border-bottom: 1px solid #f0f0f0;">
+  <header id="site-header" class="site-header">
     <div class="max-w-[1400px] mx-auto px-8 flex items-center justify-between h-[80px]">
-      <a href="#" class="font-heading text-2xl tracking-wide text-body" style="font-weight: 300;">varo</a>
-      <nav class="hidden lg:flex items-center gap-10">
-        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase text-muted hover:text-body transition-colors duration-300">Products</a>
-        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase text-muted hover:text-body transition-colors duration-300">Collections</a>
-        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase text-muted hover:text-body transition-colors duration-300">Finishes</a>
-        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase text-muted hover:text-body transition-colors duration-300">Trade</a>
-        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase text-muted hover:text-body transition-colors duration-300">Showrooms</a>
-        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase text-muted hover:text-body transition-colors duration-300">Contact</a>
+      <a href="#" class="header-logo font-heading text-2xl tracking-wide" style="font-weight: 300;">varo</a>
+      <nav class="header-nav hidden lg:flex items-center gap-10">
+        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase">Products</a>
+        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase">Collections</a>
+        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase">Finishes</a>
+        <a href="#" class="text-[11px] font-light tracking-[0.1em] uppercase">Contact</a>
       </nav>
       <div class="flex items-center gap-6">
-        <button class="text-body hover:text-muted transition-colors duration-300">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        </button>
-        <button class="text-body hover:text-muted transition-colors duration-300">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </button>
-        <button class="text-body hover:text-muted transition-colors duration-300">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        </button>
-        <button class="lg:hidden text-body">
+        <button class="header-hamburger lg:hidden">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
@@ -201,50 +180,48 @@
 
   <!-- ============ HERO ============ -->
   <section class="relative overflow-hidden" style="height: 100vh;">
-    <img src="https://zephra.com.au/cdn/shop/files/Header_New_V2.jpg?v=1751173711&width=1600" alt="" class="hero-image absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0" style="background: rgba(90, 70, 50, 0.25);"></div>
+    <img src="https://i.imgur.com/9KZY1gq.jpeg" alt="" class="hero-image absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0" style="background: rgba(90, 70, 50, 0.18);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-      <p class="hero-text text-[11px] font-light tracking-[0.2em] uppercase text-white/70 mb-6">Established 2026</p>
+      <p class="hero-text text-[11px] font-light tracking-[0.2em] uppercase text-white/70 mb-6">Established in Warsaw, 2026</p>
       <h1 class="hero-subtitle font-heading text-white text-4xl md:text-6xl lg:text-7xl mb-8" style="line-height: 1; font-weight: 300;">Refined Hardware</h1>
       <a href="#" class="hero-cta btn-quiet-white">Discover</a>
     </div>
   </section>
 
-  <div class="py-10 md:py-16"></div>
-
   <!-- ============ LINEAR MATERIAL SHOWCASE ============ -->
   <section class="relative overflow-hidden" style="height: clamp(360px, 45vh, 520px);">
-    <img src="https://zephra.com.au/cdn/shop/files/WhatsApp_Image_2025-06-29_at_14.19.48_f04dcb3d.jpg?v=1751170813&width=4160" alt="" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 flex flex-col items-start justify-center px-12 md:px-20">
-      <h2 class="reveal font-heading text-body text-3xl md:text-5xl mb-8" style="line-height: 1; font-weight: 300; font-style: italic;">Stone</h2>
-      <a href="#" class="reveal reveal-delay-1 btn-quiet">Shop Stone</a>
+    <img src="https://zephra.com.au/cdn/shop/files/WhatsApp_Image_2025-06-29_at_14.19.48_f04dcb3d.jpg?v=1751170813&width=4160" alt="" class="absolute inset-0 w-full h-full object-cover" style="object-position: 60% 55%; transform: scale(1.4);">
+    <div class="absolute inset-0 flex flex-col items-end justify-center text-right pr-12 md:pr-20">
+      <h2 class="reveal font-heading text-white text-3xl md:text-5xl mb-6" style="line-height: 1; font-weight: 300; font-style: italic;">Stone</h2>
+      <a href="#" class="reveal reveal-delay-1 btn-quiet-white">Explore</a>
     </div>
   </section>
 
   <!-- ============ PANORAMIC SCROLLER ============ -->
-  <section class="pb-16 md:pb-24" style="margin-top: -1px;">
+  <section style="margin-top: -1px; background: #EDE9E4; padding: 100px 0;">
     <div class="panoramic-scroller">
-      <div class="panoramic-track" style="gap: 0px;">
+      <div class="panoramic-track" style="gap: 25px;">
 
         <!-- SET 1 -->
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/hermes-grey-marble-cabinet-pull-160mm-zephra-st-cp-160-hgm-8302387.png?v=1751776101&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/travertine-circular-cabinet-pull-160mm-zephra-st-ccp-160-tv-9450791.png?v=1751776111&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/travertine-cabinet-pull-320mm-zephra-st-cp-320-tv-6178600.png?v=1751776108&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/silver-travertine-cabinet-pull-320mm-sold-as-pair-zephra-st-cp-320-stv-8084782.png?v=1764397989&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/silver-wave-marble-round-cabinet-knob-zephra-st-rndck-swm-7974069.png?v=1764397989&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/white-onyx-circular-entry-pull-200mm-zephra-st-cep-200-wo-8084371.png?v=1766536489&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/rosso-levanto-clover-cabinet-knob-zephra-st-clck-r-9910417.png?v=1764397989&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/travertine-cabinet-pull-320mm-zephra-st-cp-320-tv-6178600.png?v=1751776108&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/zqUZFuE.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/PBHOmCW.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/8qqVR6k.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/mGOQanH.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/l3UbJJ3.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/BarAXAS.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/gmRsoZm.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/t96XojU.png" alt="" class="w-full h-full object-cover"></div></a></div>
 
         <!-- SET 2 (duplicate) -->
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/hermes-grey-marble-cabinet-pull-160mm-zephra-st-cp-160-hgm-8302387.png?v=1751776101&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/travertine-circular-cabinet-pull-160mm-zephra-st-ccp-160-tv-9450791.png?v=1751776111&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/travertine-cabinet-pull-320mm-zephra-st-cp-320-tv-6178600.png?v=1751776108&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/silver-travertine-cabinet-pull-320mm-sold-as-pair-zephra-st-cp-320-stv-8084782.png?v=1764397989&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/silver-wave-marble-round-cabinet-knob-zephra-st-rndck-swm-7974069.png?v=1764397989&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/white-onyx-circular-entry-pull-200mm-zephra-st-cep-200-wo-8084371.png?v=1766536489&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/rosso-levanto-clover-cabinet-knob-zephra-st-clck-r-9910417.png?v=1764397989&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
-        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] bg-white overflow-hidden"><img src="https://zephra.com.au/cdn/shop/files/travertine-cabinet-pull-320mm-zephra-st-cp-320-tv-6178600.png?v=1751776108&width=1080" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/zqUZFuE.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/PBHOmCW.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/8qqVR6k.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/mGOQanH.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/l3UbJJ3.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/BarAXAS.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/gmRsoZm.png" alt="" class="w-full h-full object-cover"></div></a></div>
+        <div class="panoramic-item"><a href="#"><div class="aspect-[4/5] overflow-hidden"><img src="https://i.imgur.com/t96XojU.png" alt="" class="w-full h-full object-cover"></div></a></div>
 
       </div>
     </div>
@@ -255,7 +232,7 @@
     <div class="max-w-[1100px] mx-auto px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div class="aspect-[4/5] bg-[#e8e4df] overflow-hidden">
-          <img src="https://placehold.co/640x800/e8e4df/999?text=About+Us" alt="About Varo" class="w-full h-full object-cover">
+          <img src="https://images.squarespace-cdn.com/content/v1/5411b34ee4b0aa818cc870ab/b62aed4e-520c-4299-9657-f150db5bef04/MODERN+HOUSE+RIGOLES+%2B+BOWIE+01.jpg" alt="About Varo" class="w-full h-full object-cover">
         </div>
         <div>
           <p class="reveal text-[10px] font-light tracking-[0.2em] uppercase text-muted mb-4">Our Story</p>
@@ -274,7 +251,7 @@
 
   <!-- ============ EARLWOOD COLLECTION ============ -->
   <section class="relative">
-    <div class="relative overflow-hidden" style="height: clamp(400px, 50vh, 640px);">
+    <div class="relative overflow-hidden" style="height: clamp(480px, 60vh, 760px);">
       <img src="https://zephra.com.au/cdn/shop/files/CARABEZ-6.jpg?v=1756025274&width=1600" alt="" class="w-full h-full object-cover">
       <div class="absolute inset-0" style="background: rgba(90, 70, 50, 0.35);"></div>
       <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
@@ -282,6 +259,16 @@
         <h2 class="reveal reveal-delay-1 font-heading text-white text-3xl md:text-5xl mb-8" style="line-height: 1; font-weight: 300;">Earlwood</h2>
         <a href="#" class="reveal reveal-delay-2 btn-quiet-white">Explore</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ BRAND STATEMENT ============ -->
+  <section class="section-spacing" style="background: #f5f3f0;">
+    <div class="max-w-[800px] mx-auto px-8 text-center">
+      <p class="reveal font-heading text-body text-2xl md:text-4xl" style="font-weight: 300; font-style: italic; line-height: 1.4;">
+        "The smallest details carry the most weight."
+      </p>
+      <p class="reveal reveal-delay-1 text-[10px] font-light tracking-[0.2em] uppercase text-body mt-8">— Varo Studio, Warsaw</p>
     </div>
   </section>
 
@@ -319,68 +306,23 @@
     </div>
   </section>
 
-  <!-- ============ CURATED SELECTION ============ -->
-  <section class="section-spacing">
-    <div class="max-w-[1100px] mx-auto px-8">
-      <div class="text-center mb-16">
-        <p class="reveal text-[10px] font-light tracking-[0.2em] uppercase text-muted mb-3">Selected Pieces</p>
-        <h2 class="reveal reveal-delay-1 font-heading text-body text-3xl md:text-4xl" style="font-weight: 300;">Curated for You</h2>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-        <!-- Product 1 -->
-        <div class="product-card">
-          <a href="#" class="block">
-            <div class="aspect-[3/4] bg-[#f5f3f0] mb-5 overflow-hidden">
-              <img src="https://zephra.com.au/cdn/shop/files/linear-matte-black-cabinet-handle-165mm-zephra-lin-cp-165-mb-6489210.png?v=1751776202&width=770" alt="Linear Matte Black Handle" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-[11px] font-light tracking-wide mb-1">Linear Cabinet Handle 165mm</h3>
-            <p class="text-[11px] text-muted font-light">$45</p>
-          </a>
-        </div>
-        <!-- Product 2 -->
-        <div class="product-card">
-          <a href="#" class="block">
-            <div class="aspect-[3/4] bg-[#f5f3f0] mb-5 overflow-hidden">
-              <img src="https://zephra.com.au/cdn/shop/files/knurled-matte-black-door-handle-zephra-kn-dh-mb-6248632.png?v=1751776143&width=770" alt="Knurled Door Handle" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-[11px] font-light tracking-wide mb-1">Knurled Door Handle</h3>
-            <p class="text-[11px] text-muted font-light">$189</p>
-          </a>
-        </div>
-        <!-- Product 3 -->
-        <div class="product-card">
-          <a href="#" class="block">
-            <div class="aspect-[3/4] bg-[#f5f3f0] mb-5 overflow-hidden">
-              <img src="https://zephra.com.au/cdn/shop/files/matte-black-mortice-lock-zephra-ml-mb-3470007.png?v=1767001951&width=770" alt="Matte Black Mortice Lock" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-[11px] font-light tracking-wide mb-1">Matte Black Mortice Lock</h3>
-            <p class="text-[11px] text-muted font-light">$119</p>
-          </a>
-        </div>
-        <!-- Product 4 -->
-        <div class="product-card">
-          <a href="#" class="block">
-            <div class="aspect-[3/4] bg-[#f5f3f0] mb-5 overflow-hidden">
-              <img src="https://zephra.com.au/cdn/shop/files/matte-black-cavity-slider-zephra-cs-mb-3644506.png?v=1764563777&width=770" alt="Matte Black Cavity Slider" class="w-full h-full object-cover">
-            </div>
-            <h3 class="text-[11px] font-light tracking-wide mb-1">Matte Black Cavity Slider</h3>
-            <p class="text-[11px] text-muted font-light">$109</p>
-          </a>
-        </div>
-      </div>
-
-      <div class="text-center mt-14">
-        <a href="#" class="reveal btn-quiet">View All</a>
+  <!-- ============ NEWSLETTER ============ -->
+  <section style="background: #f5f3f0; padding: 80px 0;">
+    <div class="max-w-[520px] mx-auto px-8 text-center">
+      <p class="reveal text-[10px] font-light tracking-[0.2em] uppercase text-muted mb-4">Stay Connected</p>
+      <h2 class="reveal reveal-delay-1 font-heading text-body text-2xl md:text-3xl mb-4" style="font-weight: 300; line-height: 1.3;">Join the Studio</h2>
+      <p class="reveal reveal-delay-2 text-[13px] font-light text-muted mb-10">Receive updates on new collections, exclusive releases, and design insights.</p>
+      <div class="reveal reveal-delay-3 flex max-w-[400px] mx-auto">
+        <input type="email" placeholder="Email address" class="bg-transparent border-b border-body/20 text-body text-[12px] font-light py-2.5 flex-1 outline-none placeholder:text-muted/50 focus:border-body/50 transition-colors">
+        <button class="text-[10px] font-light tracking-[0.12em] uppercase text-muted hover:text-body pl-6 transition-colors duration-300">Subscribe</button>
       </div>
     </div>
   </section>
 
-
   <!-- ============ FOOTER ============ -->
   <footer class="bg-footer-bg text-white/70">
     <div class="max-w-[1100px] mx-auto px-8 py-16 md:py-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
         <!-- Brand -->
         <div>
           <a href="#" class="font-heading text-white text-xl block mb-6" style="font-weight: 300;">varo</a>
@@ -395,17 +337,7 @@
             <a href="#" class="text-[11px] font-light text-white/50 hover:text-white transition-colors duration-300">Delivery</a>
             <a href="#" class="text-[11px] font-light text-white/50 hover:text-white transition-colors duration-300">Returns</a>
             <a href="#" class="text-[11px] font-light text-white/50 hover:text-white transition-colors duration-300">Warranty</a>
-            <a href="#" class="text-[11px] font-light text-white/50 hover:text-white transition-colors duration-300">Trade Programme</a>
             <a href="#" class="text-[11px] font-light text-white/50 hover:text-white transition-colors duration-300">Contact</a>
-          </div>
-        </div>
-        <!-- Newsletter -->
-        <div>
-          <p class="text-[10px] font-light tracking-[0.15em] uppercase text-white/30 mb-5">Newsletter</p>
-          <p class="text-[11px] font-light text-white/40 mb-5">Receive updates on new collections and exclusive releases.</p>
-          <div class="flex">
-            <input type="email" placeholder="Email address" class="bg-transparent border-b border-white/20 text-white text-[11px] font-light py-2.5 flex-1 outline-none placeholder:text-white/25 focus:border-white/50 transition-colors">
-            <button class="text-[10px] font-light tracking-[0.12em] uppercase text-white/50 hover:text-white pl-6 transition-colors duration-300">Subscribe</button>
           </div>
         </div>
       </div>
@@ -413,11 +345,17 @@
     <div class="border-t border-white/10">
       <div class="max-w-[1100px] mx-auto px-8 py-5 flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-5">
+          <!-- Instagram -->
           <a href="#" class="text-white/25 hover:text-white/60 transition-colors duration-300">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
+          <!-- Facebook -->
           <a href="#" class="text-white/25 hover:text-white/60 transition-colors duration-300">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- TikTok -->
+          <a href="#" class="text-white/25 hover:text-white/60 transition-colors duration-300">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
           </a>
         </div>
         <p class="text-[10px] text-white/20 font-light">&copy; 2026 Varo. All rights reserved.</p>
@@ -426,6 +364,7 @@
   </footer>
 
   <script>
+    // Scroll reveals
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -435,6 +374,19 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Header: transparent on hero, solid after scroll
+    const header = document.getElementById('site-header');
+    const heroSection = document.querySelector('section');
+    function updateHeader() {
+      if (window.scrollY > heroSection.offsetHeight - 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
   </script>
 </body>
 </html>
