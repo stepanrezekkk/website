@@ -111,7 +111,7 @@
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
-    .panoramic-item { flex-shrink: 0; width: 320px; margin: 0; padding: 0; }
+    .panoramic-item { flex-shrink: 0; width: 240px; margin: 0; padding: 0; }
     .panoramic-item a { display: block; line-height: 0; }
     .panoramic-item img { transition: opacity 0.5s ease; display: block; }
     .panoramic-item:hover img { opacity: 0.85; }
@@ -201,7 +201,8 @@
 
   <!-- ============ HERO ============ -->
   <section class="relative overflow-hidden" style="height: 100vh;">
-    <img src="https://zephra.com.au/cdn/shop/files/Header_New_V2.jpg?v=1751173711&width=1600" alt="" class="hero-image absolute inset-0 w-full h-full object-cover" style="filter: brightness(0.7);">
+    <img src="https://zephra.com.au/cdn/shop/files/Header_New_V2.jpg?v=1751173711&width=1600" alt="" class="hero-image absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0" style="background: rgba(90, 70, 50, 0.25);"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
       <p class="hero-text text-[11px] font-light tracking-[0.2em] uppercase text-white/70 mb-6">Established 2026</p>
       <h1 class="hero-subtitle font-heading text-white text-4xl md:text-6xl lg:text-7xl mb-8" style="line-height: 1; font-weight: 300;">Refined Hardware</h1>
@@ -214,9 +215,9 @@
   <!-- ============ LINEAR MATERIAL SHOWCASE ============ -->
   <section class="relative overflow-hidden" style="height: clamp(360px, 45vh, 520px);">
     <img src="https://zephra.com.au/cdn/shop/files/WhatsApp_Image_2025-06-29_at_14.19.48_f04dcb3d.jpg?v=1751170813&width=4160" alt="" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 flex flex-col items-end justify-center px-12 md:px-20">
-      <h2 class="reveal font-heading text-white text-3xl md:text-5xl mb-8" style="line-height: 1; font-weight: 300; font-style: italic;">Stone</h2>
-      <a href="#" class="reveal reveal-delay-1 btn-quiet-white">Shop Stone</a>
+    <div class="absolute inset-0 flex flex-col items-start justify-center px-12 md:px-20">
+      <h2 class="reveal font-heading text-body text-3xl md:text-5xl mb-8" style="line-height: 1; font-weight: 300; font-style: italic;">Stone</h2>
+      <a href="#" class="reveal reveal-delay-1 btn-quiet">Shop Stone</a>
     </div>
   </section>
 
@@ -249,10 +250,33 @@
     </div>
   </section>
 
+  <!-- ============ ABOUT US ============ -->
+  <section class="section-spacing">
+    <div class="max-w-[1100px] mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div class="aspect-[4/5] bg-[#e8e4df] overflow-hidden">
+          <img src="https://placehold.co/640x800/e8e4df/999?text=About+Us" alt="About Varo" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <p class="reveal text-[10px] font-light tracking-[0.2em] uppercase text-muted mb-4">Our Story</p>
+          <h2 class="reveal reveal-delay-1 font-heading text-body text-3xl md:text-4xl mb-8" style="font-weight: 300; line-height: 1.15;">Crafted with<br>Intention</h2>
+          <p class="reveal reveal-delay-2 text-[13px] font-light leading-[1.9] text-muted mb-6">
+            Every piece begins with a conversation between material and maker. We source stone, brass, and bronze from trusted suppliers and work with artisans who understand that hardware is not just functional — it is the first thing you touch when you enter a room.
+          </p>
+          <p class="reveal reveal-delay-3 text-[13px] font-light leading-[1.9] text-muted mb-10">
+            Founded in Warsaw, our studio designs for architects, designers, and homeowners who believe the smallest details carry the most weight. Each finish is hand-selected, each edge considered.
+          </p>
+          <a href="#" class="reveal reveal-delay-3 btn-quiet">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ EARLWOOD COLLECTION ============ -->
   <section class="relative">
     <div class="relative overflow-hidden" style="height: clamp(400px, 50vh, 640px);">
       <img src="https://zephra.com.au/cdn/shop/files/CARABEZ-6.jpg?v=1756025274&width=1600" alt="" class="w-full h-full object-cover">
+      <div class="absolute inset-0" style="background: rgba(90, 70, 50, 0.35);"></div>
       <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
         <p class="reveal text-[10px] font-light tracking-[0.2em] uppercase text-white/50 mb-4">New Collection</p>
         <h2 class="reveal reveal-delay-1 font-heading text-white text-3xl md:text-5xl mb-8" style="line-height: 1; font-weight: 300;">Earlwood</h2>
@@ -273,7 +297,7 @@
         <!-- Category 1: Door Handles -->
         <a href="#" class="reveal group block">
           <div class="aspect-[4/5] bg-[#f5f3f0] mb-4 overflow-hidden">
-            <img src="https://zephra.com.au/cdn/shop/files/knurled-matte-black-door-handle-zephra-kn-dh-mb-2724993.png?v=1751776144&width=770" alt="Door Handles" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <img src="https://zephra.com.au/cdn/shop/collections/door-hardware-6684153.png?v=1751776037&width=640" alt="Door Handles" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
           <p class="text-[11px] font-light tracking-[0.1em] uppercase text-center text-muted group-hover:text-body transition-colors duration-300">Door Handles</p>
         </a>
@@ -290,27 +314,6 @@
             <img src="https://zephra.com.au/cdn/shop/files/silver-wave-marble-round-cabinet-knob-zephra-st-rndck-swm-7974069.png?v=1764397989&width=1080" alt="Cabinet Knobs" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
           </div>
           <p class="text-[11px] font-light tracking-[0.1em] uppercase text-center text-muted group-hover:text-body transition-colors duration-300">Cabinet Knobs</p>
-        </a>
-        <!-- Category 4: Privacy Locks -->
-        <a href="#" class="reveal group block">
-          <div class="aspect-[4/5] bg-[#f5f3f0] mb-4 overflow-hidden">
-            <img src="https://zephra.com.au/cdn/shop/files/matte-black-mortice-lock-zephra-ml-mb-3470007.png?v=1767001951&width=770" alt="Privacy Locks" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <p class="text-[11px] font-light tracking-[0.1em] uppercase text-center text-muted group-hover:text-body transition-colors duration-300">Privacy Locks</p>
-        </a>
-        <!-- Category 5: Door Stops -->
-        <a href="#" class="reveal reveal-delay-1 group block">
-          <div class="aspect-[4/5] bg-[#f5f3f0] mb-4 overflow-hidden">
-            <img src="https://zephra.com.au/cdn/shop/files/knurled-matte-black-door-stop-zephra-kn-ds-mb-2685914.png?v=1752946789&width=770" alt="Door Stops" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <p class="text-[11px] font-light tracking-[0.1em] uppercase text-center text-muted group-hover:text-body transition-colors duration-300">Door Stops</p>
-        </a>
-        <!-- Category 6: Cavity Sliders -->
-        <a href="#" class="reveal reveal-delay-2 group block">
-          <div class="aspect-[4/5] bg-[#f5f3f0] mb-4 overflow-hidden">
-            <img src="https://zephra.com.au/cdn/shop/files/matte-black-cavity-slider-zephra-cs-mb-3644506.png?v=1764563777&width=770" alt="Cavity Sliders" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-          </div>
-          <p class="text-[11px] font-light tracking-[0.1em] uppercase text-center text-muted group-hover:text-body transition-colors duration-300">Cavity Sliders</p>
         </a>
       </div>
     </div>
@@ -373,24 +376,6 @@
     </div>
   </section>
 
-  <!-- ============ ABOUT US ============ -->
-  <section class="section-spacing">
-    <div class="max-w-[1100px] mx-auto px-8">
-      <div class="max-w-[600px] mx-auto text-center">
-        <div>
-          <p class="reveal text-[10px] font-light tracking-[0.2em] uppercase text-muted mb-4">Our Story</p>
-          <h2 class="reveal reveal-delay-1 font-heading text-body text-3xl md:text-4xl mb-8" style="font-weight: 300; line-height: 1.15;">Crafted with<br>Intention</h2>
-          <p class="reveal reveal-delay-2 text-[13px] font-light leading-[1.9] text-muted mb-6">
-            Every piece begins with a conversation between material and maker. We source stone, brass, and bronze from trusted suppliers and work with artisans who understand that hardware is not just functional — it is the first thing you touch when you enter a room.
-          </p>
-          <p class="reveal reveal-delay-3 text-[13px] font-light leading-[1.9] text-muted mb-10">
-            Founded in Warsaw, our studio designs for architects, designers, and homeowners who believe the smallest details carry the most weight. Each finish is hand-selected, each edge considered.
-          </p>
-          <a href="#" class="reveal reveal-delay-3 btn-quiet">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ FOOTER ============ -->
   <footer class="bg-footer-bg text-white/70">
